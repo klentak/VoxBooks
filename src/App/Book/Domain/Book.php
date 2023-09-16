@@ -17,36 +17,36 @@ class Book
 {
     #[Required]
     #[Column(length: 255)]
-    private string $name;
+    private string $title;
 
     #[Required]
     #[Column(length: 255)]
     private string $author;
 
     #[Required]
-    #[Column(type: 'integer', unique: true)]
-    private int $isbn;
+    #[Column(type: 'string', length: 13, unique: true)]
+    private string $isbn;
 
     #[Id]
     #[Column(type: 'integer')]
-    #[GeneratedValue]
+    #[GeneratedValue(strategy: 'SEQUENCE')]
     private ?int $id;
 
     public function __construct(
         string $name,
         string $author,
-        int $isbn,
+        string $isbn,
         ?int $id = null,
     ) {
-        $this->name = $name;
+        $this->title = $name;
         $this->author = $author;
         $this->isbn = $isbn;
         $this->id = $id;
     }
 
-    public function getName(): string
+    public function getTitle(): string
     {
-        return $this->name;
+        return $this->title;
     }
 
     public function getAuthor(): string
@@ -54,7 +54,7 @@ class Book
         return $this->author;
     }
 
-    public function getIsbn(): int
+    public function getIsbn(): string
     {
         return $this->isbn;
     }
@@ -64,9 +64,9 @@ class Book
         return $this->id;
     }
 
-    public function setName(string $name): void
+    public function setTitle(string $title): void
     {
-        $this->name = $name;
+        $this->title = $title;
     }
 
     public function setAuthor(string $author): void
@@ -74,7 +74,7 @@ class Book
         $this->author = $author;
     }
 
-    public function setIsbn(int $isbn): void
+    public function setIsbn(string $isbn): void
     {
         $this->isbn = $isbn;
     }

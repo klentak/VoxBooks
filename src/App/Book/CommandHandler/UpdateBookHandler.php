@@ -19,7 +19,7 @@ class UpdateBookHandler implements CommandHandler
     {
         $this->commandRepository->update(
                 $command->getId(),
-                $command->getName(),
+                $command->getTitle(),
                 $command->getAuthor(),
                 $command->getIsbn(),
         );

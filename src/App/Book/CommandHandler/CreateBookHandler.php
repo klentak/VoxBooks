@@ -20,7 +20,7 @@ class CreateBookHandler implements CommandHandler
     {
         $this->commandRepository->add(
             new Book(
-                $command->getName(),
+                $command->getTitle(),
                 $command->getAuthor(),
                 $command->getIsbn()
             )

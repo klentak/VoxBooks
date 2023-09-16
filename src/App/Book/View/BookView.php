@@ -10,9 +10,9 @@ class BookView implements JsonSerializable
 {
     public function __construct(
         private readonly int $id,
-        private readonly string $name,
+        private readonly string $title,
         private readonly string $author,
-        private readonly int $isbn
+        private readonly string $isbn
     ) {
     }
 
@@ -21,9 +21,9 @@ class BookView implements JsonSerializable
         return $this->id;
     }
 
-    public function getName(): string
+    public function getTitle(): string
     {
-        return $this->name;
+        return $this->title;
     }
 
     public function getAuthor(): string
@@ -31,7 +31,7 @@ class BookView implements JsonSerializable
         return $this->author;
     }
 
-    public function getIsbn(): int
+    public function getIsbn(): string
     {
         return $this->isbn;
     }
@@ -40,7 +40,7 @@ class BookView implements JsonSerializable
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
+            'title' => $this->title,
             'author' => $this->author,
             'isbn' => $this->isbn,
         ];

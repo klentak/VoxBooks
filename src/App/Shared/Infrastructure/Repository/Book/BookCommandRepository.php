@@ -25,11 +25,11 @@ class BookCommandRepository
         int $id,
         string $name,
         string $author,
-        int $isbn
+        string $isbn
     ): void {
         $book = $this->getEntity($id);
 
-        $book->setName($name);
+        $book->setTitle($name);
         $book->setAuthor($author);
         $book->setIsbn($isbn);
 

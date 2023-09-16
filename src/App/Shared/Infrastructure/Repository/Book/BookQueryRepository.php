@@ -21,7 +21,7 @@ class BookQueryRepository
     public function getById(int $bookId): ?BookView
     {
         $queryBuilder = $this->connection->createQueryBuilder()
-            ->select(['b.id', 'b.name', 'b.author', 'b.isbn'])
+            ->select(['b.id', 'b.title', 'b.author', 'b.isbn'])
             ->from('book', 'b')
             ->where('b.id = :bookId')
             ->setParameter('bookId', $bookId);
@@ -35,7 +35,7 @@ class BookQueryRepository
         return $bookData
             ? new BookView(
                 $bookData['id'],
-                $bookData['name'],
+                $bookData['title'],
                 $bookData['author'],
                 $bookData['isbn']
             ) : null;
@@ -44,7 +44,7 @@ class BookQueryRepository
     public function getAll(): array
     {
         $queryBuilder = $this->connection->createQueryBuilder()
-            ->select(['b.id', 'b.name', 'b.author', 'b.isbn'])
+            ->select(['b.id', 'b.title', 'b.author', 'b.isbn'])
             ->from('book', 'b');
 
         $bookData = $this->connection->fetchAllAssociative(
@@ -55,7 +55,7 @@ class BookQueryRepository
         return array_map(function(array $bookData) {
             return new BookView(
                 $bookData['id'],
-                $bookData['name'],
+                $bookData['title'],
                 $bookData['author'],
                 $bookData['isbn']
             );

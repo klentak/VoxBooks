@@ -35,7 +35,7 @@ class BookController extends AbstractController
             new CreateBookCommand(
                 $request->get('name'),
                 $request->get('author'),
-                (int) $request->get('isbn'),
+                $request->get('isbn'),
             )
         );
 
@@ -43,7 +43,6 @@ class BookController extends AbstractController
             'message' => BookResponseMessageEnum::CREATED_MESSAGE
         ]);
     }
-
 
     #[Route('/{id}', name: 'delete', methods: [Request::METHOD_DELETE])]
     public function remove(int $id): JsonResponse
@@ -66,7 +65,7 @@ class BookController extends AbstractController
                 $id,
                 $request->get('name'),
                 $request->get('author'),
-                (int) $request->get('isbn'),
+                $request->get('isbn'),
             )
         )->last(HandledStamp::class);
 
