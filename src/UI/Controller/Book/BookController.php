@@ -6,6 +6,7 @@ namespace App\UI\Controller\Book;
 
 use App\App\Book\Command\CreateBookCommand;
 use App\App\Book\Command\DeleteBookCommand;
+use App\App\Book\Command\UpdateBookCommand;
 use App\App\Book\Enum\BookResponseMessageEnum;
 use App\App\Book\Query\GetAllBooksQuery;
 use App\App\Book\Query\GetBookByIdQuery;
@@ -55,6 +56,23 @@ class BookController extends AbstractController
             data: ['message' => BookResponseMessageEnum::DELETED_MESSAGE],
             status: Response::HTTP_CREATED
         );
+    }
+
+    #[Route('/{id}', name: 'update', methods: [Request::METHOD_PUT])]
+    public function update(int $id, Request $request): JsonResponse
+    {
+        $this->commandBus->dispatch(
+            new UpdateBookCommand(
+                $id,
+                $request->get('name'),
+                $request->get('author'),
+                (int) $request->get('isbn'),
+            )
+        )->last(HandledStamp::class);
+
+        return new JsonResponse([
+            'message' => BookResponseMessageEnum::UPDATED_MESSAGE
+        ]);
     }
 
     #[Route('/{id}', name: 'getById', methods: [Request::METHOD_GET])]

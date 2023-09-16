@@ -21,15 +21,33 @@ class BookCommandRepository
         $this->entityManager->flush();
     }
 
+    public function update(
+        int $id,
+        string $name,
+        string $author,
+        int $isbn
+    ): void {
+        $book = $this->getEntity($id);
+
+        $book->setName($name);
+        $book->setAuthor($author);
+        $book->setIsbn($isbn);
+
+        $this->entityManager->persist($book);
+        $this->entityManager->flush();
+    }
+
     public function delete(int $id): void
     {
-        $book = $this->entityManager->getRepository(Book::class)->find($id);
-
-        if (!$book) {
-            throw new NotFoundException('Book', $id);
-        }
-
-        $this->entityManager->remove($book);
+        $this->entityManager->remove(
+            $this->getEntity($id)
+        );
         $this->entityManager->flush();
+    }
+
+    private function getEntity($id): Book
+    {
+        return $this->entityManager->find(Book::class, $id)
+            ?: throw new NotFoundException('Book', $id);
     }
 }

@@ -43,4 +43,44 @@ class Book
         $this->isbn = $isbn;
         $this->id = $id;
     }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getAuthor(): string
+    {
+        return $this->author;
+    }
+
+    public function getIsbn(): int
+    {
+        return $this->isbn;
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    public function setAuthor(string $author): void
+    {
+        $this->author = $author;
+    }
+
+    public function setIsbn(int $isbn): void
+    {
+        $this->isbn = $isbn;
+    }
+
+    public function setId(?int $id): void
+    {
+        $this->id = $id;
+    }
 }
