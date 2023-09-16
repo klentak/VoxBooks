@@ -15,7 +15,7 @@ class NotFoundException extends NotFoundHttpException
                 $name,
                 $id
             ),
-            code: Response::HTTP_NOT_FOUND,
+            code: Response::HTTP_NOT_FOUND
         );
     }
 }

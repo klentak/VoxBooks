@@ -19,12 +19,7 @@ class GetBookByIdHandler implements QueryHandler
 
     public function __invoke(GetBookByIdQuery $query): BookView
     {
-        $result = $this->bookQueryRepository->getById($query->getId());
-
-        if (!$result) {
-           throw new NotFoundException('Book', $query->getId());
-       }
-
-       return $result;
+        return $this->bookQueryRepository->getById($query->getId())
+            ?: throw new NotFoundException('Book', $query->getId());
     }
 }

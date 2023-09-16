@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\UI\Controller\Book;
 
 use App\App\Book\Command\CreateBookCommand;
+use App\App\Book\Command\DeleteBookCommand;
 use App\App\Book\Enum\BookResponseMessageEnum;
 use App\App\Book\Query\GetAllBooksQuery;
 use App\App\Book\Query\GetBookByIdQuery;
@@ -37,8 +38,21 @@ class BookController extends AbstractController
             )
         );
 
+        return new JsonResponse([
+            'message' => BookResponseMessageEnum::CREATED_MESSAGE
+        ]);
+    }
+
+
+    #[Route('/{id}', name: 'delete', methods: [Request::METHOD_DELETE])]
+    public function delete(int $id): JsonResponse
+    {
+        $this->commandBus->dispatch(
+            new DeleteBookCommand($id)
+        )->last(HandledStamp::class);
+
         return new JsonResponse(
-            data: ['message' => BookResponseMessageEnum::CREATED_MESSAGE],
+            data: ['message' => BookResponseMessageEnum::DELETED_MESSAGE],
             status: Response::HTTP_CREATED
         );
     }
@@ -46,11 +60,12 @@ class BookController extends AbstractController
     #[Route('/{id}', name: 'getById', methods: [Request::METHOD_GET])]
     public function getById(int $id): JsonResponse
     {
-        $result = $this->queryBus->dispatch(
-            new GetBookByIdQuery($id)
-        )->last(HandledStamp::class);
-
-        return new JsonResponse($result->getResult());
+        return new JsonResponse(
+            $this->queryBus->dispatch(
+                new GetBookByIdQuery($id)
+            )->last(HandledStamp::class)
+            ->getResult()
+        );
     }
 
     #[Route('', name: 'getAll', methods: [Request::METHOD_GET])]
