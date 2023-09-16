@@ -17,8 +17,8 @@ doctrine:
         mappings:
             Book:
                 is_bundle: false
-                dir: '%kernel.project_dir%/src/Book/Domain'
-                prefix: 'App\Book\Domain\Book'
+                dir: '%kernel.project_dir%/src/App/Book/Domain'
+                prefix: 'App\App\Book\Domain\Book'
                 alias: Book
 
 when@test:

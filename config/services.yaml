@@ -21,9 +21,9 @@ services:
             - '../src/Kernel.php'
 
     _instanceof:
-        App\Shared\CQRS\Command\CommandHandler:
+        App\App\Shared\CQRS\Command\CommandHandler:
             tags:
                 - { name: messenger.message_handler, bus: command.bus }
-        App\Shared\CQRS\Query\QueryHandler:
+        App\App\Shared\CQRS\Query\QueryHandler:
             tags:
                 - { name: messenger.message_handler, bus: query.bus }

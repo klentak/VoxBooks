@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Shared\CQRS\Query;
+namespace App\App\Shared\CQRS\Query;
 
 interface QueryBus
 {

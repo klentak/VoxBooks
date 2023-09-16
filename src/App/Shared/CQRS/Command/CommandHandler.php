@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Shared\CQRS\Command;
+namespace App\App\Shared\CQRS\Command;
 
 interface CommandHandler
 {

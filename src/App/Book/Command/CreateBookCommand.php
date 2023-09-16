@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Book\Command;
+namespace App\App\Book\Command;
 
 
-use App\Shared\CQRS\Command\Command;
+use App\App\Shared\CQRS\Command\Command;
 
 class CreateBookCommand implements Command
 {

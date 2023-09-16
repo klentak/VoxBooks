@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Book\Domain;
+namespace App\App\Book\Domain;
 
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Book\Enum;
+namespace App\App\Book\Enum;
 
 enum BookResponseMessageEnum
 {
