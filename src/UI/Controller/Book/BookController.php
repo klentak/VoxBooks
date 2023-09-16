@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\UI\Controller\Book;
 
 use App\App\Book\Command\CreateBookCommand;
-use App\App\Book\Command\DeleteBookCommand;
+use App\App\Book\Command\RemoveBookCommand;
 use App\App\Book\Command\UpdateBookCommand;
 use App\App\Book\Enum\BookResponseMessageEnum;
 use App\App\Book\Query\GetAllBooksQuery;
@@ -46,14 +46,14 @@ class BookController extends AbstractController
 
 
     #[Route('/{id}', name: 'delete', methods: [Request::METHOD_DELETE])]
-    public function delete(int $id): JsonResponse
+    public function remove(int $id): JsonResponse
     {
         $this->commandBus->dispatch(
-            new DeleteBookCommand($id)
+            new RemoveBookCommand($id)
         )->last(HandledStamp::class);
 
         return new JsonResponse(
-            data: ['message' => BookResponseMessageEnum::DELETED_MESSAGE],
+            data: ['message' => BookResponseMessageEnum::REMOVED_MESSAGE],
             status: Response::HTTP_CREATED
         );
     }

@@ -7,7 +7,7 @@ namespace App\App\Book\CommandHandler;
 use App\App\Book\Command\CreateBookCommand;
 use App\App\Book\Domain\Book;
 use App\App\Shared\CQRS\Command\CommandHandler;
-use App\App\Shared\Infrastructure\Repository\BookCommandRepository;
+use App\App\Shared\Infrastructure\Repository\Book\BookCommandRepository;
 
 class CreateBookHandler implements CommandHandler
 {

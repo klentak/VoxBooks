@@ -8,5 +8,5 @@ enum BookResponseMessageEnum
 {
     const CREATED_MESSAGE = "Book successfully created";
     const UPDATED_MESSAGE = "Book successfully updated";
-    const DELETED_MESSAGE = "Book successfully deleted";
+    const REMOVED_MESSAGE = "Book successfully removed";
 }

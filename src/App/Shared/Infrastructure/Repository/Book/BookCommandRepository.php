@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\App\Shared\Infrastructure\Repository;
+namespace App\App\Shared\Infrastructure\Repository\Book;
 
 use App\App\Book\Domain\Book;
 use App\App\Shared\Exception\NotFoundException;
@@ -37,7 +37,7 @@ class BookCommandRepository
         $this->entityManager->flush();
     }
 
-    public function delete(int $id): void
+    public function remove(int $id): void
     {
         $this->entityManager->remove(
             $this->getEntity($id)
