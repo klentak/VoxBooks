@@ -15,23 +15,21 @@ class BookCommandRepository
     ) {
     }
 
-    public function add(Book $book): void
+    public function save(Book $book): void
     {
         $this->entityManager->persist($book);
         $this->entityManager->flush();
     }
 
-    public function remove(int $id): void
+    public function getEntity(int $id): Book
     {
-        $this->entityManager->remove(
-            $this->getEntity($id)
-        );
-        $this->entityManager->flush();
-    }
-
-    public function getEntity($id): Book
-    {
-        return $this->entityManager->find(Book::class, $id)
-            ?: throw new NotFoundException('Book', $id);
+        return $this->entityManager->getRepository(Book::class)
+            ->createQueryBuilder('b')
+            ->where('b.id = :id')
+            ->andWhere('b.deletedAt IS NULL')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getOneOrNullResult()
+                ?: throw new NotFoundException('Book', $id);
     }
 }

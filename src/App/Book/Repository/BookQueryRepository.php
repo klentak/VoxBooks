@@ -24,13 +24,13 @@ class BookQueryRepository
             ->select(['b.id', 'b.title', 'b.author', 'b.isbn'])
             ->from('book', 'b')
             ->where('b.id = :bookId')
+            ->andWhere('b.deleted_at IS NULL')
             ->setParameter('bookId', $bookId);
 
         $bookData = $this->connection->fetchAssociative(
             $queryBuilder->getSQL(),
             $queryBuilder->getParameters()
         );
-
 
         return $bookData
             ? new BookView(
@@ -45,7 +45,8 @@ class BookQueryRepository
     {
         $queryBuilder = $this->connection->createQueryBuilder()
             ->select(['b.id', 'b.title', 'b.author', 'b.isbn'])
-            ->from('book', 'b');
+            ->from('book', 'b')
+            ->where('b.deleted_at IS NULL');
 
         $bookData = $this->connection->fetchAllAssociative(
             $queryBuilder->getSQL(),
