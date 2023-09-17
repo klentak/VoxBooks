@@ -18,10 +18,10 @@ class UpdateBookHandler implements CommandHandler
     public function __invoke(UpdateBookCommand $command): void
     {
         $this->commandRepository->update(
-                $command->getId(),
-                $command->getTitle(),
-                $command->getAuthor(),
-                $command->getIsbn(),
+            $command->getId(),
+            $command->getTitle(),
+            $command->getAuthor(),
+            $command->getIsbn(),
         );
     }
 }

@@ -31,7 +31,6 @@ class BookQueryRepository
             $queryBuilder->getParameters()
         );
 
-
         return $bookData
             ? new BookView(
                 $bookData['id'],
@@ -52,7 +51,7 @@ class BookQueryRepository
             $queryBuilder->getParameters()
         );
 
-        return array_map(function(array $bookData) {
+        return array_map(function(array $bookData): BookView {
             return new BookView(
                 $bookData['id'],
                 $bookData['title'],

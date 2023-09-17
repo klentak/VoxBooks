@@ -93,7 +93,7 @@ class BookController extends AbstractController
         )->last(HandledStamp::class);
 
         return new JsonResponse(
-            array_map(function(BookView $result) {
+            array_map(function(BookView $result): array {
                 return $result->jsonSerialize();
             }, $result->getResult())
         );
