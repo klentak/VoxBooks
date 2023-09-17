@@ -16,9 +16,9 @@ use DateTime;
 class ReserveHandler implements CommandHandler
 {
     public function __construct(
-        private ReservationQueryRepository $reservationQueryRepository,
-        private ReservationCommandRepository $reservationCommandRepository,
-        private BookCommandRepository $bookCommandRepository
+        private readonly ReservationQueryRepository $reservationQueryRepository,
+        private readonly ReservationCommandRepository $reservationCommandRepository,
+        private readonly BookCommandRepository $bookCommandRepository
     ) {
     }
 

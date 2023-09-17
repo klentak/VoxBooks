@@ -1,10 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\App\Reservation\Repository;
 
-use App\App\Book\Domain\Book;
 use App\App\Reservation\Domain\Reservation;
-use App\App\Shared\Exception\NotFoundException;
 use Doctrine\ORM\EntityManagerInterface;
 
 class ReservationCommandRepository
@@ -18,11 +18,5 @@ class ReservationCommandRepository
     {
         $this->entityManager->persist($reservation);
         $this->entityManager->flush();
-    }
-
-    public function getBookEntity(int $id)
-    {
-        return $this->entityManager->find(Book::class, $id)
-            ?: throw new NotFoundException('Book', $id);
     }
 }
