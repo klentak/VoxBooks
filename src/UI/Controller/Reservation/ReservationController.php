@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace App\UI\Controller\Reservation;
 
-use App\App\Book\View\BookView;
 use App\App\Reservation\Command\ReserveCommand;
 use App\App\Reservation\Command\ReturnCommand;
 use App\App\Reservation\Enum\ReservationResponseMessageEnum;
 use DateTime;
-use Nelmio\ApiDocBundle\Annotation\Model;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
