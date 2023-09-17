@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use OpenApi\Attributes as OA;
 
 #[Route('/books/{bookId}', name: 'books.reservation')]
 class ReservationController extends AbstractController
@@ -22,13 +23,22 @@ class ReservationController extends AbstractController
     ) {
     }
 
-    #[Route('/reserve', name: 'reserve', methods: [Request::METHOD_POST])]
+    #[
+        Route('/reserve', name: 'reserve', methods: [Request::METHOD_POST]),
+        OA\RequestBody(
+            content: new OA\JsonContent(
+                properties: [
+                    new OA\Property(property: 'returnDate', type: 'string', format: 'date-time'),
+                ]
+            )
+        )
+    ]
     public function reserve(int $bookId, Request $request): JsonResponse
     {
         $this->commandBus->dispatch(
             new ReserveCommand(
                 $bookId,
-                new DateTime($request->get('returnDate'))
+                new DateTime($request->toArray()['returnDate'])
             )
         );
 
