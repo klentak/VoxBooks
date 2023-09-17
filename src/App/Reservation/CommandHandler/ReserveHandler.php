@@ -10,7 +10,7 @@ use App\App\Reservation\Domain\Reservation;
 use App\App\Reservation\Repository\ReservationCommandRepository;
 use App\App\Reservation\Repository\ReservationQueryRepository;
 use App\App\Shared\CQRS\Command\CommandHandler;
-use App\App\Shared\Exception\BookAlreadyReserved;
+use App\App\Shared\Infrastructure\Exception\BookAlreadyReserved;
 use DateTime;
 
 class ReserveHandler implements CommandHandler

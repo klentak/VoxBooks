@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\App\Shared\Infrastructure\Repository\Book;
+namespace App\App\Book\Repository\Book;
 
 use App\App\Book\View\BookView;
 use Doctrine\DBAL\Connection;

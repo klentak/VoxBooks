@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\App\Reservation\Repository;
 
 use App\App\Reservation\Domain\Reservation;
-use App\App\Shared\Exception\ReservationNotFound;
+use App\App\Shared\Infrastructure\Exception\ReservationNotFound;
 use Doctrine\ORM\EntityManagerInterface;
 
 class ReservationCommandRepository

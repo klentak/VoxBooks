@@ -19,6 +19,9 @@ services:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
             - '../src/Kernel.php'
+    App\App\Shared\Infrastructure\EventListener\ExceptionListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
 
     _instanceof:
         App\App\Shared\CQRS\Command\CommandHandler:
