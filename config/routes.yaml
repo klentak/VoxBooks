@@ -1,3 +1,7 @@
 controllers_books:
     resource: ../src/UI/Controller/Book/
     type: annotation
+    
+controllers_reservations:
+    resource: ../src/UI/Controller/Reservation/
+    type: annotation

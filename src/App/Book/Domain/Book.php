@@ -15,6 +15,11 @@ use Symfony\Contracts\Service\Attribute\Required;
 #[UniqueConstraint('isbn_unique_index', ['isbn'])]
 class Book
 {
+    #[Id]
+    #[Column(type: 'integer')]
+    #[GeneratedValue(strategy: 'SEQUENCE')]
+    private ?int $id;
+
     #[Required]
     #[Column(length: 255)]
     private string $title;
@@ -26,11 +31,6 @@ class Book
     #[Required]
     #[Column(type: 'string', length: 13, unique: true)]
     private string $isbn;
-
-    #[Id]
-    #[Column(type: 'integer')]
-    #[GeneratedValue(strategy: 'SEQUENCE')]
-    private ?int $id;
 
     public function __construct(
         string $name,

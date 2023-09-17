@@ -20,6 +20,11 @@ doctrine:
                 dir: '%kernel.project_dir%/src/App/Book/Domain'
                 prefix: 'App\App\Book\Domain\Book'
                 alias: Book
+            Reservation:
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/App/Reservation/Domain'
+                prefix: 'App\App\Reservation\Domain\Reservation'
+                alias: Book
 
 when@test:
     doctrine:
