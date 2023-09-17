@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\App\Book\QueryHandler;
 
 use App\App\Book\Query\GetAllBooksQuery;
+use App\App\Book\Repository\BookQueryRepository;
 use App\App\Shared\CQRS\Query\QueryHandler;
-use App\App\Shared\Infrastructure\Repository\Book\BookQueryRepository;
 
 class GetAllBooksHandler implements QueryHandler
 {

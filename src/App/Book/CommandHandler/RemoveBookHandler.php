@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\App\Book\CommandHandler;
 
 use App\App\Book\Command\RemoveBookCommand;
+use App\App\Book\Repository\BookCommandRepository;
 use App\App\Shared\CQRS\Command\CommandHandler;
-use App\App\Shared\Infrastructure\Repository\Book\BookCommandRepository;
 
 class RemoveBookHandler implements CommandHandler
 {

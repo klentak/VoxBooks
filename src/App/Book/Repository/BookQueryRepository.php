@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\App\Shared\Infrastructure\Repository\Book;
+namespace App\App\Book\Repository;
 
+use App\App\Book\Domain\Book;
 use App\App\Book\View\BookView;
+use App\App\Shared\Exception\NotFoundException;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Exception;
 

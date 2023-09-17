@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\App\Shared\Infrastructure\Repository\Book;
+namespace App\App\Book\Repository;
 
 use App\App\Book\Domain\Book;
 use App\App\Shared\Exception\NotFoundException;
@@ -45,7 +45,7 @@ class BookCommandRepository
         $this->entityManager->flush();
     }
 
-    private function getEntity($id): Book
+    public function getEntity($id): Book
     {
         return $this->entityManager->find(Book::class, $id)
             ?: throw new NotFoundException('Book', $id);
