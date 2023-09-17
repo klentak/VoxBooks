@@ -8,7 +8,7 @@ use App\App\Book\Command\RemoveBookCommand;
 use App\App\Book\Repository\BookCommandRepository;
 use App\App\Reservation\Repository\ReservationQueryRepository;
 use App\App\Shared\CQRS\Command\CommandHandler;
-use App\App\Shared\Exception\BookReserved;
+use App\App\Shared\Infrastructure\Exception\BookReserved;
 use DateTime;
 
 class RemoveBookHandler implements CommandHandler

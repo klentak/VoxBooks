@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\App\Shared\Infrastructure\Repository\Book;
+namespace App\App\Book\Repository\Book;
 
 use App\App\Book\Domain\Book;
-use App\App\Shared\Exception\NotFoundException;
+use App\App\Shared\Infrastructure\Exception\NotFoundException;
 use Doctrine\ORM\EntityManagerInterface;
 
 class BookCommandRepository

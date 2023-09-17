@@ -8,7 +8,7 @@ use App\App\Book\Query\GetBookByIdQuery;
 use App\App\Book\Repository\BookQueryRepository;
 use App\App\Book\View\BookView;
 use App\App\Shared\CQRS\Query\QueryHandler;
-use App\App\Shared\Exception\NotFoundException;
+use App\App\Shared\Infrastructure\Exception\NotFoundException;
 
 class GetBookByIdHandler implements QueryHandler
 {
