@@ -23,7 +23,7 @@ class UpdateBookHandler implements CommandHandler
         $book->setAuthor($command->getAuthor());
         $book->setIsbn($command->getIsbn());
 
-        $this->commandRepository->add(
+        $this->commandRepository->save(
             $book
         );
     }

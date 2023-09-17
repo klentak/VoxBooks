@@ -18,7 +18,7 @@ class CreateBookHandler implements CommandHandler
 
     public function __invoke(CreateBookCommand $command): void
     {
-        $this->commandRepository->add(
+        $this->commandRepository->save(
             new Book(
                 $command->getTitle(),
                 $command->getAuthor(),
