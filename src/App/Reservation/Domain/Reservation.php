@@ -47,4 +47,9 @@ class Reservation
         $this->returnDate = $returnDate;
         $this->returnedAt = $returnedAt;
     }
+
+    public function setReturnedAt(?DateTime $returnedAt): void
+    {
+        $this->returnedAt = $returnedAt;
+    }
 }

@@ -21,22 +21,6 @@ class BookCommandRepository
         $this->entityManager->flush();
     }
 
-    public function update(
-        int $id,
-        string $name,
-        string $author,
-        string $isbn
-    ): void {
-        $book = $this->getEntity($id);
-
-        $book->setTitle($name);
-        $book->setAuthor($author);
-        $book->setIsbn($isbn);
-
-        $this->entityManager->persist($book);
-        $this->entityManager->flush();
-    }
-
     public function remove(int $id): void
     {
         $this->entityManager->remove(

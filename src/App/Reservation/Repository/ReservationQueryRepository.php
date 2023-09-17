@@ -19,7 +19,7 @@ class ReservationQueryRepository
             ->select(['1'])
             ->from('reservation', 'r')
             ->where('r.book_id = :bookId')
-            ->where('r.returned_at IS NULL')
+            ->andWhere('r.returned_at IS NULL')
             ->setParameter('bookId', $bookId);
 
         return !!$this->connection->fetchAssociative(
