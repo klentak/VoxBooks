@@ -1,7 +1,7 @@
 # Aplikacja REST API 
 ## Opis Aplikacji
 
-Aplikacja "Biblioteczna" jest prostym REST API stworzonym w oparciu o framework Symfony, które umożliwia zarządzanie książkami w bibliotece. API pozwala na wykonywanie różnych operacji na książkach, takich jak dodawanie, aktualizacja, usuwanie, wypożyczanie, zwracanie i rezerwacja.
+Aplikacja "Biblioteczna" jest prostym REST API stworzonym w oparciu o framework Symfony, które umożliwia zarządzanie książkami. API pozwala na wykonywanie różnych operacji na książkach, takich jak dodawanie, aktualizacja, usuwanie, wypożyczanie, zwracanie i rezerwacja.
 
 ## Endpointy REST API
 
